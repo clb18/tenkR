@@ -1,0 +1,26 @@
+Package: secExtract
+Type: Package
+Title: Extract SEC EDGAR Financial Statements into Excel
+Version: 0.1.0
+Authors@R: person("Your Name", email = "your@email.com", role = c("aut", "cre"))
+Description: Downloads and formats 10-K financial statements (income statement,
+    balance sheet, and cash flow statement) from the SEC EDGAR database into
+    a clean, formatted Excel workbook. Companies can be identified by ticker
+    symbol or company name.
+License: MIT + file LICENSE
+Encoding: UTF-8
+RoxygenNote: 7.3.1
+Imports:
+    httr (>= 1.4.0),
+    jsonlite (>= 1.8.0),
+    dplyr (>= 1.0.0),
+    tidyr (>= 1.0.0),
+    openxlsx (>= 4.2.0),
+    stringr (>= 1.4.0)
+Suggests:
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+URL: https://github.com/yourusername/secExtract
+BugReports: https://github.com/yourusername/secExtract/issues
