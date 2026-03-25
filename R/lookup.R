@@ -52,7 +52,7 @@ lookup_company <- function(identifier, user_agent) {
   }
 
   if (nrow(result) > 1) {
-    message("Multiple matches found. Returning all matches — use the CIK to be specific:")
+    message("Multiple matches found. Returning all matches - use the CIK to be specific:")
     print(result)
     message("Tip: Call get_financials() with the exact ticker for the company you want.")
   }

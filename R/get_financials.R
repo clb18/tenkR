@@ -91,6 +91,21 @@ get_financials <- function(identifier,
   balance_sheet <- .build_statement(facts, .balance_concepts, n_years)
   cash_flow     <- .build_statement(facts, .cashflow_concepts, n_years)
 
+  # If Net Change in Cash is all NA, calculate it from the three subtotals
+  if (!is.null(cash_flow)) {
+    net_change_row <- which(cash_flow$`Line Item` == "Net Change in Cash")
+    if (length(net_change_row) > 0) {
+      ops_row <- which(cash_flow$`Line Item` == "Cash from Operations")
+      inv_row <- which(cash_flow$`Line Item` == "Cash from Investing")
+      fin_row <- which(cash_flow$`Line Item` == "Cash from Financing")
+      if (length(ops_row) > 0 & length(inv_row) > 0 & length(fin_row) > 0) {
+        cash_flow[net_change_row, 2:ncol(cash_flow)] <-
+          cash_flow[ops_row, 2:ncol(cash_flow)] +
+          cash_flow[inv_row, 2:ncol(cash_flow)] +
+          cash_flow[fin_row, 2:ncol(cash_flow)]
+      }
+    }
+  }
   # Report which statements had data
   stmts_found <- c(
     if (!is.null(income_stmt))   "Income Statement",

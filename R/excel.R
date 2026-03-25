@@ -106,8 +106,20 @@
                         startRow = 2, startCol = 1)
     openxlsx::addStyle(wb, sheet_name, subtitle_style, rows = 2, cols = 1)
 
+    # Convert to millions except EPS and share counts
+    skip_million <- c("eps", "shares outstanding")
+    df_display <- df
+    for (i in seq_len(nrow(df_display))) {
+      label <- tolower(df_display$`Line Item`[i])
+      if (!any(stringr::str_detect(label, skip_million))) {
+        df_display[i, 2:ncol(df_display)] <-
+          lapply(df_display[i, 2:ncol(df_display)],
+                 function(x) if (is.numeric(x)) round(x / 1e6, 1) else x)
+      }
+    }
+    
     # Data table
-    openxlsx::writeData(wb, sheet_name, x = df,
+    openxlsx::writeData(wb, sheet_name, x = df_display,
                         startRow = data_start_row, startCol = 1,
                         headerStyle = header_style)
 
@@ -157,7 +169,7 @@
 
   write_sheet(wb, "Income Statement",  income_stmt,
               paste(company_name, "\u2013 Income Statement"),
-              "Values in USD (as reported)")
+              "Values in USD millions (as reported)")
 
   write_sheet(wb, "Balance Sheet",     balance_sheet,
               paste(company_name, "\u2013 Balance Sheet"),
