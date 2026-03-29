@@ -1,6 +1,6 @@
-#' secExtract: Download SEC EDGAR Financial Statements into Excel
+#' tenkR: Download SEC EDGAR Financial Statements into Excel
 #'
-#' The secExtract package provides a simple interface for downloading
+#' The tenkR package provides a simple interface for downloading
 #' 10-K financial statements from the SEC EDGAR database and exporting
 #' them to a formatted Excel workbook.
 #'
@@ -11,7 +11,7 @@
 #'
 #' @section Quick start:
 #' \preformatted{
-#' library(secExtract)
+#' library(tenkR)
 #'
 #' # Set your user agent (required by SEC policy)
 #' my_agent <- "Your Name your@email.com"
@@ -30,7 +30,7 @@
 #' See \url{https://www.sec.gov/os/accessing-edgar-data} for details.
 #'
 #' @docType package
-#' @name secExtract
+#' @name tenkR
 "_PACKAGE"
 
 #' @import dplyr

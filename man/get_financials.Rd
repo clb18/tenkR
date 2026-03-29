@@ -24,7 +24,7 @@ A named list with elements: \code{income_statement}, \code{balance_sheet},
 \code{filepath}. The Excel workbook is saved as a side effect.
 }
 \description{
-The main function of the secExtract package. Given a company ticker or name,
+The main function of the tenkR package. Given a company ticker or name,
 this function looks up the company CIK, downloads all reported XBRL financial
 data, builds formatted financial statements, and exports a clean Excel workbook.
 }

@@ -1,4 +1,4 @@
-Package: secExtract
+Package: tenkR
 Type: Package
 Title: Extract SEC EDGAR Financial Statements into Excel
 Version: 0.1.0
@@ -19,5 +19,5 @@ Imports:
     stringr (>= 1.4.0)
 Suggests:
     testthat (>= 3.0.0)
-URL: https://github.com/yourusername/secExtract
-BugReports: https://github.com/yourusername/secExtract/issues
+URL: https://github.com/clb18/tenkR
+BugReports: https://github.com/clb18/tenkR/issues

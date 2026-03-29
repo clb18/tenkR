@@ -1,4 +1,4 @@
-# secExtract
+# tenkR
 
 An R package for downloading SEC EDGAR 10-K financial statements and exporting them to a formatted Excel workbook.
 
@@ -7,16 +7,16 @@ An R package for downloading SEC EDGAR 10-K financial statements and exporting t
 ```r
 # Install from GitHub (once published)
 # install.packages("devtools")
-devtools::install_github("yourusername/secExtract")
+devtools::install_github("yourusername/tenkR")
 
 # Or install locally from source
-devtools::install("path/to/secExtract")
+devtools::install("path/to/tenkR")
 ```
 
 ## Quick Start
 
 ```r
-library(secExtract)
+library(tenkR)
 
 # One line to get a full Excel workbook of financial statements
 get_financials("AAPL", user_agent = "Your Name your@email.com")
