@@ -40,4 +40,10 @@
 #' @importFrom openxlsx createWorkbook addWorksheet writeData createStyle
 #'   addStyle setColWidths freezePane saveWorkbook
 #' @importFrom stringr str_detect fixed
+utils::globalVariables(c(
+  "value", "Line Item", "form", "fp", "filed",
+  "end", "val", "cik_str", "cik", "ticker",
+  "title", "company_name", ":="
+))
+
 NULL
